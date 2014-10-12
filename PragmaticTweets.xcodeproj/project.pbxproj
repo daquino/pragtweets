@@ -13,6 +13,8 @@
 		50F8C6BC19E3172900377883 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50F8C6BB19E3172900377883 /* Images.xcassets */; };
 		50F8C6BF19E3172900377883 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8C6BD19E3172900377883 /* LaunchScreen.xib */; };
 		50F8C6CB19E3172900377883 /* PragmaticTweetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6CA19E3172900377883 /* PragmaticTweetsTests.swift */; };
+		50F8C6DC19E5C7FC00377883 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8C6DE19E5C7FC00377883 /* Localizable.strings */; };
+		50F8C6E119E707D000377883 /* WebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6E019E707D000377883 /* WebViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,11 @@
 		50F8C6C419E3172900377883 /* PragmaticTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PragmaticTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F8C6C919E3172900377883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F8C6CA19E3172900377883 /* PragmaticTweetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PragmaticTweetsTests.swift; sourceTree = "<group>"; };
+		50F8C6D819E5C64700377883 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		50F8C6D919E5C64700377883 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		50F8C6DD19E5C7FC00377883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		50F8C6DF19E5C81100377883 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		50F8C6E019E707D000377883 /* WebViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +107,7 @@
 			children = (
 				50F8C6CA19E3172900377883 /* PragmaticTweetsTests.swift */,
 				50F8C6C819E3172900377883 /* Supporting Files */,
+				50F8C6E019E707D000377883 /* WebViewTests.swift */,
 			);
 			path = PragmaticTweetsTests;
 			sourceTree = "<group>";
@@ -108,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				50F8C6C919E3172900377883 /* Info.plist */,
+				50F8C6DE19E5C7FC00377883 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 50F8C6A619E3172900377883;
 			productRefGroup = 50F8C6B019E3172900377883 /* Products */;
@@ -194,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50F8C6BA19E3172900377883 /* Main.storyboard in Resources */,
+				50F8C6DC19E5C7FC00377883 /* Localizable.strings in Resources */,
 				50F8C6BF19E3172900377883 /* LaunchScreen.xib in Resources */,
 				50F8C6BC19E3172900377883 /* Images.xcassets in Resources */,
 			);
@@ -223,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50F8C6CB19E3172900377883 /* PragmaticTweetsTests.swift in Sources */,
+				50F8C6E119E707D000377883 /* WebViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +253,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				50F8C6B919E3172900377883 /* Base */,
+				50F8C6D819E5C64700377883 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -249,8 +262,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				50F8C6BE19E3172900377883 /* Base */,
+				50F8C6D919E5C64700377883 /* fr */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		50F8C6DE19E5C7FC00377883 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50F8C6DD19E5C7FC00377883 /* Base */,
+				50F8C6DF19E5C81100377883 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -410,6 +433,7 @@
 				50F8C6D019E3172900377883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50F8C6D119E3172900377883 /* Build configuration list for PBXNativeTarget "PragmaticTweetsTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +442,7 @@
 				50F8C6D319E3172900377883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
