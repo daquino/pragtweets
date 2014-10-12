@@ -24,17 +24,6 @@ class WebViewTests: XCTestCase, UIWebViewDelegate {
         super.tearDown()
     }
     
-    func testAutomaticWebLoad() {
-        if let viewController = UIApplication.sharedApplication().windows[0].rootViewController as? ViewController {
-            viewController.twitterWebView.delegate = self
-            self.loadedWebViewExpectation = expectationWithDescription("web view auto-load test")
-            waitForExpectationsWithTimeout(5.0, handler: nil)
-        }
-        else {
-            XCTFail("Couldn't get root view controller")
-        }
-    }
-    
     func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
         XCTFail("web view load failed")
         self.loadedWebViewExpectation!.fulfill()

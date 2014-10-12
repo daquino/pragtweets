@@ -9,12 +9,10 @@
 import UIKit
 import Social
 
-public class ViewController: UIViewController {
+public class ViewController: UITableViewController {
 
-    @IBOutlet public weak var twitterWebView: UIWebView!
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.reloadTweets()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -22,15 +20,23 @@ public class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func handleShowMyTweetsTapped(sender: UIButton) {
-        self.reloadTweets()
+    
+    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 5
     }
     
-    func reloadTweets() {
-        let url = NSURL(string: "http://www.twitter.com/yomilayer3")
-        let urlRequest = NSURLRequest(URL: url)
-        self.twitterWebView.loadRequest(urlRequest)
+    override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section)"
+    }
+    
+    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section + 1
+    }
+    
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        cell.textLabel?.text = "Row \(indexPath.row)"
+        return cell
     }
     
     @IBAction func handleTweetButtonTapped(sender: UIButton) {
@@ -44,5 +50,7 @@ public class ViewController: UIViewController {
             println("Can't send tweet")
         }
     }
+    
+    
 }
 

@@ -15,6 +15,7 @@
 		50F8C6CB19E3172900377883 /* PragmaticTweetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6CA19E3172900377883 /* PragmaticTweetsTests.swift */; };
 		50F8C6DC19E5C7FC00377883 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8C6DE19E5C7FC00377883 /* Localizable.strings */; };
 		50F8C6E119E707D000377883 /* WebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6E019E707D000377883 /* WebViewTests.swift */; };
+		50F8C6E319EB316400377883 /* ParsedTweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6E219EB316400377883 /* ParsedTweet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		50F8C6DD19E5C7FC00377883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50F8C6DF19E5C81100377883 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50F8C6E019E707D000377883 /* WebViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewTests.swift; sourceTree = "<group>"; };
+		50F8C6E219EB316400377883 /* ParsedTweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedTweet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		50F8C6A619E3172900377883 = {
 			isa = PBXGroup;
 			children = (
+				50F8C6E219EB316400377883 /* ParsedTweet.swift */,
 				50F8C6B119E3172900377883 /* PragmaticTweets */,
 				50F8C6C719E3172900377883 /* PragmaticTweetsTests */,
 				50F8C6B019E3172900377883 /* Products */,
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50F8C6E319EB316400377883 /* ParsedTweet.swift in Sources */,
 				50F8C6B719E3172900377883 /* ViewController.swift in Sources */,
 				50F8C6B519E3172900377883 /* AppDelegate.swift in Sources */,
 			);
