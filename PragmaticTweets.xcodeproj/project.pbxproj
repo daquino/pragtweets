@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50CDF74119EF67E200DCB414 /* ParsedTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDF74019EF67E200DCB414 /* ParsedTweetCell.swift */; };
 		50F8C6B519E3172900377883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6B419E3172900377883 /* AppDelegate.swift */; };
 		50F8C6B719E3172900377883 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6B619E3172900377883 /* ViewController.swift */; };
 		50F8C6BA19E3172900377883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F8C6B819E3172900377883 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50CDF74019EF67E200DCB414 /* ParsedTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedTweetCell.swift; sourceTree = "<group>"; };
 		50F8C6AF19E3172900377883 /* PragmaticTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PragmaticTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F8C6B319E3172900377883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F8C6B419E3172900377883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				50F8C6BB19E3172900377883 /* Images.xcassets */,
 				50F8C6BD19E3172900377883 /* LaunchScreen.xib */,
 				50F8C6B219E3172900377883 /* Supporting Files */,
+				50CDF74019EF67E200DCB414 /* ParsedTweetCell.swift */,
 			);
 			path = PragmaticTweets;
 			sourceTree = "<group>";
@@ -173,7 +176,7 @@
 				TargetAttributes = {
 					50F8C6AE19E3172900377883 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = R7JTFN46LH;
+						DevelopmentTeam = N3CVAV8U7F;
 					};
 					50F8C6C319E3172900377883 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50CDF74119EF67E200DCB414 /* ParsedTweetCell.swift in Sources */,
 				50F8C6E319EB316400377883 /* ParsedTweet.swift in Sources */,
 				50F8C6B719E3172900377883 /* ViewController.swift in Sources */,
 				50F8C6B519E3172900377883 /* AppDelegate.swift in Sources */,
