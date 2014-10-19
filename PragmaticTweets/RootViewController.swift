@@ -12,7 +12,7 @@ import Accounts
 
 let defaultAvatarURL = NSURL(string: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_200x200.png")
 
-public class ViewController: UITableViewController {
+public class RootViewController: UITableViewController, TwitterAPIRequestDelegate {
     var parsedTweets : Array<ParsedTweet> =  [
         ParsedTweet(tweetText: "iOS SDK Development now in print swift programming ftw!", userName: "@pragprog", createdAt: "2014-08-20 16:44:30 EDT", userAvatarURL: defaultAvatarURL),
         ParsedTweet(tweetText: "Math is cool", userName: "@redqueencoder", createdAt: "2014-08-16 16:44:30 EDIT", userAvatarURL: defaultAvatarURL),
@@ -86,35 +86,13 @@ public class ViewController: UITableViewController {
     }
     
     func reloadTweets() {
-        println(NSThread.isMainThread() ? "On main thread" : "Not on main thread")
-        let accountStore = ACAccountStore()
-        let twitterAccountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
-        accountStore.requestAccessToAccountsWithType(twitterAccountType, options: nil, completion: {
-            (Bool granted, NSError error) -> Void in
-            if(!granted) {
-                println("account access not granted")
-            }
-            else {
-                let twitterAccounts = accountStore.accountsWithAccountType(twitterAccountType)
-                if twitterAccounts.count == 0 {
-                    println("no twitter accounts configured")
-                }
-                else {
-                    let twitterParams = [ "count" : "100"]
-                    let twitterAPIURL = NSURL.URLWithString("https://api.twitter.com/1.1/statuses/home_timeline.json")
-                    let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: twitterAPIURL, parameters: twitterParams)
-                    request.account = twitterAccounts[0] as ACAccount
-                    request.performRequestWithHandler({
-                        (NSData data, NSHTTPURLResponse urlResponse, NSError error) -> Void
-                        in
-                        self.handleTwitterData(data, urlResponse: urlResponse, error: error)
-                    })
-                }
-            }
-        })
+        let twitterParams: Dictionary = ["count": "100"]
+        let twitterAPIURL = NSURL.URLWithString("https://api.twitter.com/1.1/statuses/home_timeline.json")
+        let request = TwitterAPIRequest()
+        request.sendTwitterRequest(twitterAPIURL, params: twitterParams, delegate: self)
     }
     
-    func handleTwitterData(data: NSData!, urlResponse: NSHTTPURLResponse!, error: NSError!) {
+    func handleTwitterData(data: NSData!, urlResponse: NSHTTPURLResponse!, error: NSError!, fromRequest: TwitterAPIRequest!) {
         println(NSThread.isMainThread() ? "On main thread" : "Not on main thread")
         if let dataValue = data {
             var parseError: NSError? = nil
