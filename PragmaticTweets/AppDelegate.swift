@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, TwitterAPIRequestDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -31,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TwitterAPIRequestDelegate
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        let request = TwitterAPIRequest()
-        request.sendTwitterRequest(NSURL(string: "https://api.twitter.com/1.1/users/suggestions.json"), params: [], delegate: self)
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -42,7 +40,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TwitterAPIRequestDelegate
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
