@@ -73,7 +73,7 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
         return cell
     }
     
-    @IBAction func handleTweetButtonTapped(sender: UIButton) {
+    @IBAction func handleTweetButtonTapped(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
             let message = NSBundle.mainBundle().localizedStringForKey("I just finished the first project in iOS 8 SDK Development. #pragios8", value: "", table: nil)
             let tweetVC = SLComposeViewController (forServiceType: SLServiceTypeTwitter)
@@ -108,6 +108,7 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
                     let userDict = tweetDict["user"] as NSDictionary
                     parsedTweet.userName = userDict["name"] as? NSString
                     parsedTweet.userAvatarURL = NSURL(string: userDict["profile_image_url"] as NSString!)
+                    parsedTweet.tweetIdString = tweetDict["id_str"] as? NSString
                     self.parsedTweets.append(parsedTweet)
                     dispatch_async(dispatch_get_main_queue(),
                         { () -> Void in
@@ -122,6 +123,13 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
         }
     }
     
-    
+    public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showTweetDetailsSegue" {
+            if let tweetDetailVC = segue.destinationViewController as? TweetDetailViewController {
+                let row = self.tableView!.indexPathForSelectedRow()!.row
+                let parsedTweet = parsedTweets[row] as ParsedTweet
+                tweetDetailVC.tweetIdString = parsedTweet.tweetIdString
+            }
+        }
+    }
 }
-
