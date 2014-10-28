@@ -12,6 +12,7 @@ import MapKit
 class TweetDetailViewController: UIViewController, TwitterAPIRequestDelegate {
     var tweetIdString: String? {
         didSet {
+            println("setting tweet id")
             reloadTweetDetails()
         }
     }

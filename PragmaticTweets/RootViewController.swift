@@ -12,7 +12,7 @@ import Accounts
 
 let defaultAvatarURL = NSURL(string: "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_200x200.png")
 
-public class RootViewController: UITableViewController, TwitterAPIRequestDelegate {
+public class RootViewController: UITableViewController, TwitterAPIRequestDelegate, UISplitViewControllerDelegate {
     var parsedTweets : Array<ParsedTweet> =  [
         ParsedTweet(tweetText: "iOS SDK Development now in print swift programming ftw!", userName: "@pragprog", createdAt: "2014-08-20 16:44:30 EDT", userAvatarURL: defaultAvatarURL),
         ParsedTweet(tweetText: "Math is cool", userName: "@redqueencoder", createdAt: "2014-08-16 16:44:30 EDIT", userAvatarURL: defaultAvatarURL),
@@ -25,7 +25,9 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
         var refresher = UIRefreshControl()
         refresher.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refresher
-        // Do any additional setup after loading the view, typically from a nib.
+        if self.splitViewController != nil {
+            self.splitViewController!.delegate = self
+        }
     }
     
     @IBAction func handleRefresh(sender: AnyObject?) {
@@ -41,10 +43,6 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
     
     override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
-    }
-    
-    override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
     }
     
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +69,18 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
                     })
             })
         return cell
+    }
+    
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let parsedTweet = parsedTweets[indexPath.row]
+        if self.splitViewController != nil {
+            if(self.splitViewController!.viewControllers.count > 1) {
+                if let tweetDetailVC = self.splitViewController!.viewControllers[1] as? TweetDetailViewController {
+                    tweetDetailVC.tweetIdString = parsedTweet.tweetIdString;
+                }
+            }
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
     @IBAction func handleTweetButtonTapped(sender: AnyObject) {
@@ -131,5 +141,9 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
                 tweetDetailVC.tweetIdString = parsedTweet.tweetIdString
             }
         }
+    }
+    
+    public func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
+        return true
     }
 }
