@@ -79,6 +79,12 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
                     tweetDetailVC.tweetIdString = parsedTweet.tweetIdString;
                 }
             }
+            else {
+                if let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("TweetDetailVC") as? TweetDetailViewController {
+                    detailVC.tweetIdString = parsedTweet.tweetIdString
+                    self.splitViewController!.showDetailViewController(detailVC, sender: self)
+                }
+            }
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
