@@ -338,16 +338,16 @@
                 <exit id="wfc-oC-pp8" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="vsN-6N-7OQ">
                     <connections>
-                        <segue destination="XwG-9r-j3w" kind="presentation" id="7MJ-Eu-XlR"/>
+                        <segue destination="XwG-9r-j3w" kind="presentation" identifier="showUserImageDetailSegue" id="7MJ-Eu-XlR"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="643" y="47"/>
         </scene>
-        <!--View Controller-->
+        <!--User Image Detail View Controller-->
         <scene sceneID="OkC-fc-0aQ">
             <objects>
-                <viewController id="XwG-9r-j3w" sceneMemberID="viewController">
+                <viewController id="XwG-9r-j3w" customClass="UserImageDetailViewController" customModule="PragmaticTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BJK-ht-ARn"/>
                         <viewControllerLayoutGuide type="bottom" id="cJJ-H0-g3Q"/>
@@ -356,12 +356,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-Sj-lku">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-Sj-lku">
                                 <rect key="frame" x="160" y="160" width="280" height="280"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="fkN-ec-5jd"/>
                                     <constraint firstAttribute="width" constant="280" id="pug-S9-RhB"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="OK7-mA-WVy" appends="YES" id="iG3-cZ-9eX"/>
+                                    <outletCollection property="gestureRecognizers" destination="ud1-R4-aRw" appends="YES" id="Bxc-YJ-btm"/>
+                                    <outletCollection property="gestureRecognizers" destination="8S3-B7-vOE" appends="YES" id="xno-Fc-fAt"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tQ-4H-glT">
                                 <rect key="frame" x="282" y="550" width="37" height="30"/>
@@ -381,8 +387,26 @@
                             <constraint firstAttribute="centerX" secondItem="7tQ-4H-glT" secondAttribute="centerX" id="q9t-J6-wDF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userImageView" destination="UeO-Sj-lku" id="Eo7-W5-3tn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2V-hN-yHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="OK7-mA-WVy">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="XwG-9r-j3w" id="rWt-7O-gcH"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="ud1-R4-aRw">
+                    <connections>
+                        <action selector="handleDoubleTapGesture:" destination="XwG-9r-j3w" id="3AW-vc-Feh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pinchGestureRecognizer id="8S3-B7-vOE">
+                    <connections>
+                        <action selector="handlePinchGesture:" destination="XwG-9r-j3w" id="y1M-Qt-dJZ"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1408" y="47"/>
         </scene>

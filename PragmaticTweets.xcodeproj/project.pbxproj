@@ -22,6 +22,7 @@
 		50F8C6DC19E5C7FC00377883 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8C6DE19E5C7FC00377883 /* Localizable.strings */; };
 		50F8C6E119E707D000377883 /* WebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6E019E707D000377883 /* WebViewTests.swift */; };
 		50F8C6E319EB316400377883 /* ParsedTweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F8C6E219EB316400377883 /* ParsedTweet.swift */; };
+		50F94B2E1A0C707600927823 /* UserImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F94B2D1A0C707600927823 /* UserImageDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		50F8C6DF19E5C81100377883 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50F8C6E019E707D000377883 /* WebViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewTests.swift; sourceTree = "<group>"; };
 		50F8C6E219EB316400377883 /* ParsedTweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParsedTweet.swift; path = ../ParsedTweet.swift; sourceTree = "<group>"; };
+		50F94B2D1A0C707600927823 /* UserImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		50F8C6B119E3172900377883 /* PragmaticTweets */ = {
 			isa = PBXGroup;
 			children = (
+				50F94B2C1A0C704A00927823 /* User Image Detail VC */,
 				506F53A91A01A4C100174615 /* Size Class Override */,
 				50D788B719FC5867003008F1 /* User Detail VC */,
 				50B571F019FAFB36007FBF92 /* Tweet Detail VC */,
@@ -180,6 +183,14 @@
 				50F8C6DE19E5C7FC00377883 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50F94B2C1A0C704A00927823 /* User Image Detail VC */ = {
+			isa = PBXGroup;
+			children = (
+				50F94B2D1A0C707600927823 /* UserImageDetailViewController.swift */,
+			);
+			name = "User Image Detail VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 				50F8C6E319EB316400377883 /* ParsedTweet.swift in Sources */,
 				50F8C6B719E3172900377883 /* RootViewController.swift in Sources */,
 				506F53AB1A01A4DC00174615 /* SizeClassOverridingViewController.swift in Sources */,
+				50F94B2E1A0C707600927823 /* UserImageDetailViewController.swift in Sources */,
 				509C8D2D19F33AC600860C6B /* TwitterAPIRequest.swift in Sources */,
 				50B571F219FAFB77007FBF92 /* TweetDetailViewController.swift in Sources */,
 				50F8C6B519E3172900377883 /* AppDelegate.swift in Sources */,
