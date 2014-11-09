@@ -356,19 +356,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-Sj-lku">
-                                <rect key="frame" x="160" y="160" width="280" height="280"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="fkN-ec-5jd"/>
-                                    <constraint firstAttribute="width" constant="280" id="pug-S9-RhB"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="OK7-mA-WVy" appends="YES" id="iG3-cZ-9eX"/>
-                                    <outletCollection property="gestureRecognizers" destination="ud1-R4-aRw" appends="YES" id="Bxc-YJ-btm"/>
-                                    <outletCollection property="gestureRecognizers" destination="8S3-B7-vOE" appends="YES" id="xno-Fc-fAt"/>
-                                </connections>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tQ-4H-glT">
                                 <rect key="frame" x="282" y="550" width="37" height="30"/>
                                 <state key="normal" title="Done">
@@ -378,17 +365,41 @@
                                     <segue destination="wfc-oC-pp8" kind="unwind" unwindAction="unwindToUserDetailVC:" id="lhs-FW-6A2"/>
                                 </connections>
                             </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77j-l2-Tn2">
+                                <rect key="frame" x="160" y="160" width="280" height="280"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NCK-fX-27S">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="6OH-gV-5jL"/>
+                                            <constraint firstAttribute="height" constant="280" id="rBa-gZ-GmC"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="PIa-Mm-BfL"/>
+                                    <constraint firstAttribute="width" constant="280" id="apS-5i-2Wd"/>
+                                    <constraint firstAttribute="centerY" secondItem="NCK-fX-27S" secondAttribute="centerY" id="o93-OX-Xqp"/>
+                                    <constraint firstAttribute="centerX" secondItem="NCK-fX-27S" secondAttribute="centerX" id="uPO-Vh-eAe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cJJ-H0-g3Q" firstAttribute="top" secondItem="7tQ-4H-glT" secondAttribute="bottom" constant="20" id="3BM-ea-6U0"/>
-                            <constraint firstAttribute="centerY" secondItem="UeO-Sj-lku" secondAttribute="centerY" id="BYR-Ky-yW0"/>
-                            <constraint firstAttribute="centerX" secondItem="UeO-Sj-lku" secondAttribute="centerX" id="J6E-h9-WDz"/>
+                            <constraint firstAttribute="centerY" secondItem="77j-l2-Tn2" secondAttribute="centerY" id="gvD-or-TrB"/>
+                            <constraint firstAttribute="centerX" secondItem="77j-l2-Tn2" secondAttribute="centerX" id="i3E-vJ-2jZ"/>
                             <constraint firstAttribute="centerX" secondItem="7tQ-4H-glT" secondAttribute="centerX" id="q9t-J6-wDF"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="OK7-mA-WVy" appends="YES" id="ul8-ac-JKU"/>
+                            <outletCollection property="gestureRecognizers" destination="ud1-R4-aRw" appends="YES" id="7ZO-u9-6iJ"/>
+                            <outletCollection property="gestureRecognizers" destination="8S3-B7-vOE" appends="YES" id="XZ0-bs-XHq"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="userImageView" destination="UeO-Sj-lku" id="Eo7-W5-3tn"/>
+                        <outlet property="userImageView" destination="NCK-fX-27S" id="AMv-Rk-8pJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2V-hN-yHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
