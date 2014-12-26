@@ -8,33 +8,17 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
-
-    @IBOutlet var nextKeyboardButton: UIButton!
-
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-    
-        // Add custom view sizing constraints here
-    }
+class KeyboardViewController: UIInputViewController, UITableViewDataSource, UITableViewDelegate, TwitterAPIRequestDelegate {
+    @IBOutlet weak var nextKeyboardBarButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    var tweepNames: Array<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Perform custom UI setup here
-        self.nextKeyboardButton = UIButton.buttonWithType(.System) as UIButton
-    
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
-        self.nextKeyboardButton.sizeToFit()
-        self.nextKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-    
-        self.nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
-        
-        self.view.addSubview(self.nextKeyboardButton)
-    
-        var nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
-        var nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
-        self.view.addConstraints([nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
+        let twitterParams: Dictionary = ["count": "100"]
+        let twitterAPIURL = NSURL(string: "https://api.twitter.com/1.1/friends/list.json")
+        let request = TwitterAPIRequest()
+        request.sendTwitterRequest(twitterAPIURL, params: twitterParams, delegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,21 +26,48 @@ class KeyboardViewController: UIInputViewController {
         // Dispose of any resources that can be recreated
     }
 
-    override func textWillChange(textInput: UITextInput) {
-        // The app is about to change the document's contents. Perform any preparation here.
+    @IBAction func nextKeyboardBarBUttonTapped(sender: UIBarButtonItem) {
+        self.advanceToNextInputMode()
     }
-
-    override func textDidChange(textInput: UITextInput) {
-        // The app has just changed the document's contents, the document context has been updated.
     
-        var textColor: UIColor
-        var proxy = self.textDocumentProxy as UITextDocumentProxy
-        if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
-            textColor = UIColor.whiteColor()
-        } else {
-            textColor = UIColor.blackColor()
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweepNames.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("DefaultCell") as UITableViewCell
+        cell.textLabel?.text = "@\(self.tweepNames[indexPath.row])"
+        return cell
+    }
+    
+    func handleTwitterData(data: NSData!, urlResponse: NSHTTPURLResponse!, error: NSError!, fromRequest: TwitterAPIRequest!) {
+        if let dataValue = data {
+            var parseError: NSError? = nil
+            let jsonObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(dataValue, options: NSJSONReadingOptions(0),
+                error: &parseError)
+            if parseError != nil {
+                return
+            }
+            if let jsonDict = jsonObject as? Dictionary<String, AnyObject> {
+                if let usersArray = jsonDict["users"] as? NSArray {
+                    self.tweepNames.removeAll(keepCapacity: true)
+                    for userObject in usersArray {
+                        if let userDict = userObject as? Dictionary<String, AnyObject> {
+                            let tweepName = userDict["screen_name"] as NSString
+                            self.tweepNames.append(tweepName)
+                        }
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in self.tableView.reloadData() })
+            }
+            else {
+                println("handleTwitterData received no data")
+            }
         }
-        self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
     }
 
 }

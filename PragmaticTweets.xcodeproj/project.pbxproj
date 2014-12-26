@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		50243D9D1A48E54800851189 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50243D9C1A48E54800851189 /* KeyboardViewController.swift */; };
 		50243DA01A48E54800851189 /* PragmaticTweepsKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 50243D981A48E54800851189 /* PragmaticTweepsKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		50243DA61A4923C400851189 /* KeyboardViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50243DA51A4923C400851189 /* KeyboardViewControllerStoryboard.storyboard */; };
+		50243DA71A4B775500851189 /* TwitterAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8D2C19F33AC600860C6B /* TwitterAPIRequest.swift */; };
+		50243DA81A4B775500851189 /* TwitterAPIRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8D2E19F33B6900860C6B /* TwitterAPIRequestDelegate.swift */; };
 		506F53AB1A01A4DC00174615 /* SizeClassOverridingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F53AA1A01A4DC00174615 /* SizeClassOverridingViewController.swift */; };
 		509C8D2D19F33AC600860C6B /* TwitterAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8D2C19F33AC600860C6B /* TwitterAPIRequest.swift */; };
 		509C8D2F19F33B6900860C6B /* TwitterAPIRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8D2E19F33B6900860C6B /* TwitterAPIRequestDelegate.swift */; };
@@ -62,6 +65,7 @@
 		50243D981A48E54800851189 /* PragmaticTweepsKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PragmaticTweepsKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		50243D9B1A48E54800851189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50243D9C1A48E54800851189 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		50243DA51A4923C400851189 /* KeyboardViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeyboardViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
 		506F53AA1A01A4DC00174615 /* SizeClassOverridingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClassOverridingViewController.swift; sourceTree = "<group>"; };
 		509C8D2C19F33AC600860C6B /* TwitterAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterAPIRequest.swift; sourceTree = "<group>"; };
 		509C8D2E19F33B6900860C6B /* TwitterAPIRequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterAPIRequestDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		50243D991A48E54800851189 /* PragmaticTweepsKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				50243DA51A4923C400851189 /* KeyboardViewControllerStoryboard.storyboard */,
 				50243D9C1A48E54800851189 /* KeyboardViewController.swift */,
 				50243D9A1A48E54800851189 /* Supporting Files */,
 			);
@@ -351,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50243DA61A4923C400851189 /* KeyboardViewControllerStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50243DA71A4B775500851189 /* TwitterAPIRequest.swift in Sources */,
+				50243DA81A4B775500851189 /* TwitterAPIRequestDelegate.swift in Sources */,
 				50243D9D1A48E54800851189 /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

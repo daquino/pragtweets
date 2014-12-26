@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rDK-8H-OW0">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Keyboard View Controller-->
+        <scene sceneID="7lx-E1-FFt">
+            <objects>
+                <viewController id="rDK-8H-OW0" customClass="KeyboardViewController" customModule="PragmaticTweepsKeyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lcB-gy-3FG"/>
+                        <viewControllerLayoutGuide type="bottom" id="mIP-dV-UI8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="67W-PK-WgT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="204"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="019-0f-pZO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Pragmatic Tweeps" id="mB5-4I-DSu">
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="jko-SJ-8RE">
+                                            <connections>
+                                                <action selector="nextKeyboardBarBUttonTapped:" destination="rDK-8H-OW0" id="lUW-xa-i99"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ot5-jU-0bl">
+                                <rect key="frame" x="16" y="44" width="568" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="FMr-wC-Xxg"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DefaultCell" id="15D-SU-ayR">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="15D-SU-ayR" id="4fc-jT-LfK">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rDK-8H-OW0" id="7mc-1j-BRN"/>
+                                    <outlet property="delegate" destination="rDK-8H-OW0" id="hBA-pF-vsV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ot5-jU-0bl" firstAttribute="leading" secondItem="67W-PK-WgT" secondAttribute="leadingMargin" id="6zM-x6-cTG"/>
+                            <constraint firstItem="019-0f-pZO" firstAttribute="leading" secondItem="67W-PK-WgT" secondAttribute="leading" id="9T1-Lk-4yJ"/>
+                            <constraint firstItem="Ot5-jU-0bl" firstAttribute="top" secondItem="019-0f-pZO" secondAttribute="bottom" id="BcY-Z8-tKn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ot5-jU-0bl" secondAttribute="trailing" id="OXp-1D-Krv"/>
+                            <constraint firstAttribute="trailing" secondItem="019-0f-pZO" secondAttribute="trailing" id="dfT-My-XDy"/>
+                            <constraint firstItem="019-0f-pZO" firstAttribute="top" secondItem="67W-PK-WgT" secondAttribute="top" id="xUI-jz-ys0"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="204"/>
+                    <connections>
+                        <outlet property="nextKeyboardBarButton" destination="jko-SJ-8RE" id="OgP-Zx-88U"/>
+                        <outlet property="tableView" destination="Ot5-jU-0bl" id="KTA-f0-ULt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N82-YB-SPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="306"/>
+        </scene>
+    </scenes>
+</document>
