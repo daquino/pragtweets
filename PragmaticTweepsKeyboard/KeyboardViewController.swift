@@ -69,5 +69,13 @@ class KeyboardViewController: UIInputViewController, UITableViewDataSource, UITa
             }
         }
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let keyInputProxy = self.textDocumentProxy as? UIKeyInput {
+            let atName = "@\(self.tweepNames[indexPath.row])"
+            keyInputProxy.insertText(atName)
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 
 }
