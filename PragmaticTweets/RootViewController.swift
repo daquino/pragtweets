@@ -103,7 +103,8 @@ public class RootViewController: UITableViewController, TwitterAPIRequestDelegat
     
     func reloadTweets() {
         let twitterParams: Dictionary = ["count": "100"]
-        let twitterAPIURL = NSURL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
+//        let twitterAPIURL = NSURL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")
+        let twitterAPIURL = NSURL(string: "https://api.twitter.com/1.1/statuses/foo_bar.json")
         let request = TwitterAPIRequest()
         request.sendTwitterRequest(twitterAPIURL, params: twitterParams, delegate: self)
     }
